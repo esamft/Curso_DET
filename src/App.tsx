@@ -5,6 +5,7 @@ import { Menu } from '@/pages/Menu';
 import { ReadSelect } from '@/pages/ReadSelect';
 import { Writing } from '@/pages/Writing';
 import { ReadComplete } from '@/pages/ReadComplete';
+import { Speaking } from '@/pages/Speaking';
 
 function App() {
   return (
@@ -17,9 +18,7 @@ function App() {
         <Route path="/practice/read-select" element={<ReadSelect />} />
         <Route path="/practice/writing" element={<Writing />} />
         <Route path="/practice/read-complete" element={<ReadComplete />} />
-        {/* Future routes to be added:
-          - /practice/speaking - Interactive Speaking
-        */}
+        <Route path="/practice/speaking" element={<Speaking />} />
       </Routes>
     </BrowserRouter>
   );
