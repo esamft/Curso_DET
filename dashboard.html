@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DET Simulator</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo">
+                    <div class="logo-layers">
+                        <span class="layer"></span>
+                        <span class="layer"></span>
+                        <span class="layer"></span>
+                    </div>
+                </div>
+                <div class="title">
+                    <h1>DET Simulator</h1>
+                    <p class="subtitle">Dashboard do Aluno</p>
+                </div>
+            </div>
+            <div class="user-section">
+                <div class="user-info">
+                    <span class="user-name">Aluno</span>
+                    <span class="user-level">Nível B2</span>
+                </div>
+                <button class="menu-btn" onclick="window.location.href='menu.html'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Bento Grid -->
+        <main class="bento-grid">
+            <!-- Card 1: Score Gauge (Destaque) -->
+            <div class="card card-hero">
+                <h2 class="card-title">Sua Estimativa DET</h2>
+                <div class="gauge-container">
+                    <svg class="gauge" viewBox="0 0 200 120">
+                        <!-- Background arc -->
+                        <path d="M 20 100 A 80 80 0 0 1 180 100"
+                              fill="none"
+                              stroke="#E5E5E5"
+                              stroke-width="20"
+                              stroke-linecap="round"/>
+
+                        <!-- Colored sections -->
+                        <path d="M 20 100 A 80 80 0 0 1 60 40"
+                              fill="none"
+                              stroke="#F44336"
+                              stroke-width="20"
+                              stroke-linecap="round"
+                              class="gauge-red"/>
+
+                        <path d="M 60 40 A 80 80 0 0 1 100 20"
+                              fill="none"
+                              stroke="#FFC107"
+                              stroke-width="20"
+                              stroke-linecap="round"
+                              class="gauge-yellow"/>
+
+                        <path d="M 100 20 A 80 80 0 0 1 140 40"
+                              fill="none"
+                              stroke="#8BC34A"
+                              stroke-width="20"
+                              stroke-linecap="round"
+                              class="gauge-green"/>
+
+                        <path d="M 140 40 A 80 80 0 0 1 180 100"
+                              fill="none"
+                              stroke="#4CAF50"
+                              stroke-width="20"
+                              stroke-linecap="round"
+                              class="gauge-dark-green"/>
+
+                        <!-- Needle -->
+                        <g class="needle" transform="rotate(0 100 100)">
+                            <circle cx="100" cy="100" r="8" fill="#3C3C3C"/>
+                            <line x1="100" y1="100" x2="100" y2="35"
+                                  stroke="#3C3C3C"
+                                  stroke-width="3"
+                                  stroke-linecap="round"/>
+                        </g>
+                    </svg>
+
+                    <div class="score-display">
+                        <div class="score-range">115-125</div>
+                        <div class="score-label">Nível B2 Avançado</div>
+                    </div>
+                </div>
+
+                <div class="score-scale">
+                    <span>10</span>
+                    <span>60</span>
+                    <span>110</span>
+                    <span>160</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Radar Chart -->
+            <div class="card card-radar">
+                <h2 class="card-title">Desempenho por Habilidade</h2>
+                <div class="radar-container">
+                    <svg class="radar" viewBox="0 0 200 200">
+                        <!-- Grid -->
+                        <polygon points="100,20 170,65 170,135 100,180 30,135 30,65"
+                                 fill="none" stroke="#E5E5E5" stroke-width="1"/>
+                        <polygon points="100,40 150,75 150,125 100,160 50,125 50,75"
+                                 fill="none" stroke="#E5E5E5" stroke-width="1"/>
+                        <polygon points="100,60 130,85 130,115 100,140 70,115 70,85"
+                                 fill="none" stroke="#E5E5E5" stroke-width="1"/>
+
+                        <!-- Axes -->
+                        <line x1="100" y1="100" x2="100" y2="20" stroke="#E5E5E5" stroke-width="1"/>
+                        <line x1="100" y1="100" x2="170" y2="65" stroke="#E5E5E5" stroke-width="1"/>
+                        <line x1="100" y1="100" x2="170" y2="135" stroke="#E5E5E5" stroke-width="1"/>
+                        <line x1="100" y1="100" x2="100" y2="180" stroke="#E5E5E5" stroke-width="1"/>
+                        <line x1="100" y1="100" x2="30" y2="135" stroke="#E5E5E5" stroke-width="1"/>
+                        <line x1="100" y1="100" x2="30" y2="65" stroke="#E5E5E5" stroke-width="1"/>
+
+                        <!-- Data polygon (animated) -->
+                        <polygon id="radarData" points="100,35 155,75 145,125 95,155 50,120 60,70"
+                                 fill="rgba(33, 150, 243, 0.3)"
+                                 stroke="#2196F3"
+                                 stroke-width="2"/>
+
+                        <!-- Points -->
+                        <circle cx="100" cy="35" r="4" fill="#2196F3"/>
+                        <circle cx="155" cy="75" r="4" fill="#2196F3"/>
+                        <circle cx="145" cy="125" r="4" fill="#2196F3"/>
+                        <circle cx="95" cy="155" r="4" fill="#2196F3"/>
+                        <circle cx="50" cy="120" r="4" fill="#2196F3"/>
+                        <circle cx="60" cy="70" r="4" fill="#2196F3"/>
+                    </svg>
+                </div>
+
+                <div class="radar-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #2196F3;"></span>
+                        <span>Literacy: 125</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #2196F3;"></span>
+                        <span>Comprehension: 118</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #2196F3;"></span>
+                        <span>Conversation: 112</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #2196F3;"></span>
+                        <span>Production: 120</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Histórico -->
+            <div class="card card-history">
+                <div class="card-header">
+                    <h2 class="card-title">Histórico de Simulados</h2>
+                    <button class="view-all-btn">Ver tudo</button>
+                </div>
+
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="history-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#4CAF50" stroke-width="2"/>
+                                <path d="M8 12l2 2 4-4" stroke="#4CAF50" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="history-content">
+                            <div class="history-title">Simulado #4</div>
+                            <div class="history-meta">Ontem às 14:30</div>
+                        </div>
+                        <div class="history-score">
+                            <span class="score-badge high">120</span>
+                        </div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#8BC34A" stroke-width="2"/>
+                                <path d="M8 12l2 2 4-4" stroke="#8BC34A" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="history-content">
+                            <div class="history-title">Simulado #3</div>
+                            <div class="history-meta">Há 3 dias</div>
+                        </div>
+                        <div class="history-score">
+                            <span class="score-badge medium">115</span>
+                        </div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#FFC107" stroke-width="2"/>
+                                <path d="M8 12l2 2 4-4" stroke="#FFC107" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="history-content">
+                            <div class="history-title">Simulado #2</div>
+                            <div class="history-meta">Há 1 semana</div>
+                        </div>
+                        <div class="history-score">
+                            <span class="score-badge medium">108</span>
+                        </div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#FF9800" stroke-width="2"/>
+                                <path d="M8 12l2 2 4-4" stroke="#FF9800" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="history-content">
+                            <div class="history-title">Simulado #1</div>
+                            <div class="history-meta">Há 2 semanas</div>
+                        </div>
+                        <div class="history-score">
+                            <span class="score-badge low">95</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Ações Rápidas -->
+            <div class="card card-actions">
+                <h2 class="card-title">Ações Rápidas</h2>
+
+                <div class="action-buttons">
+                    <button class="action-btn btn-primary" onclick="window.location.href='menu.html'">
+                        <div class="btn-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="btn-content">
+                            <div class="btn-title">Novo Simulado Completo</div>
+                            <div class="btn-subtitle">~45 minutos</div>
+                        </div>
+                    </button>
+
+                    <button class="action-btn btn-secondary" onclick="window.location.href='flashcard-modal.html'">
+                        <div class="btn-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <rect x="4" y="6" width="16" height="12" rx="2" stroke="white" stroke-width="2"/>
+                                <line x1="4" y1="10" x2="20" y2="10" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="btn-content">
+                            <div class="btn-title">Revisar Flashcards</div>
+                            <div class="btn-subtitle">24 cards disponíveis</div>
+                        </div>
+                    </button>
+
+                    <button class="action-btn btn-tertiary" onclick="window.location.href='index.html'">
+                        <div class="btn-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" fill="white"/>
+                                <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="btn-content">
+                            <div class="btn-title">Praticar Speaking</div>
+                            <div class="btn-subtitle">Treino rápido</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 5: Estatísticas Rápidas -->
+            <div class="card card-stats">
+                <h2 class="card-title">Estatísticas</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">Horas de Estudo</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Simulados Feitos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">87%</div>
+                        <div class="stat-label">Taxa de Acerto</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">+12</div>
+                        <div class="stat-label">Pontos esta semana</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

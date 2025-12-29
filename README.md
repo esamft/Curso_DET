@@ -4,13 +4,15 @@ Simulador completo do DET (Duolingo English Test) com múltiplas seções intera
 
 ## Funcionalidades
 
-### 🎯 5 Módulos Completos
+### 🎯 7 Módulos Completos
 
-1. **Interactive Speaking** - Conversação com avatar AI
-2. **Read and Complete** - Completar textos com letras faltantes
-3. **Read and Select** - Identificar palavras reais vs. inventadas
-4. **Interactive Writing** - Redação com timer e contador de palavras
-5. **Flashcard Deck** - Sistema de flashcards para vocabulário
+1. **Dashboard** - Painel com estatísticas, gráficos e histórico
+2. **Interactive Speaking** - Conversação com avatar AI
+3. **Read and Complete** - Completar textos com letras faltantes
+4. **Read and Select** - Identificar palavras reais vs. inventadas
+5. **Interactive Writing** - Redação com timer e contador de palavras
+6. **Resultados** - Tela de score com feedback detalhado
+7. **Flashcard Deck** - Sistema de flashcards para vocabulário
 
 ### ✨ Recursos
 

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - DET Simulator</title>
+    <link rel="stylesheet" href="resultados.css">
+</head>
+<body>
+    <!-- Confetti Container -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="results-header">
+            <div class="celebration-badge">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#FFD700"/>
+                </svg>
+            </div>
+            <h1 class="header-title">Teste Concluído!</h1>
+            <p class="header-subtitle">Parabéns por completar o simulado DET</p>
+        </header>
+
+        <!-- Score Hero Section -->
+        <section class="score-hero">
+            <div class="score-container">
+                <div class="score-label">Sua Pontuação</div>
+                <div class="score-value" id="scoreValue">0</div>
+                <div class="score-max">de 160</div>
+            </div>
+
+            <!-- Score Scale Bar -->
+            <div class="score-scale-container">
+                <div class="score-scale">
+                    <div class="scale-labels">
+                        <span class="scale-label">10</span>
+                        <span class="scale-label">60</span>
+                        <span class="scale-label">110</span>
+                        <span class="scale-label">160</span>
+                    </div>
+                    <div class="scale-track">
+                        <!-- Color zones -->
+                        <div class="scale-zone zone-low"></div>
+                        <div class="scale-zone zone-medium"></div>
+                        <div class="scale-zone zone-good"></div>
+                        <div class="scale-zone zone-excellent"></div>
+
+                        <!-- Score marker -->
+                        <div class="score-marker" id="scoreMarker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">135</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level Badge -->
+                <div class="level-badge">
+                    <span class="badge-icon">🎓</span>
+                    <span class="badge-text">Nível C1 Proficiente</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Breakdown Section -->
+        <section class="breakdown-section">
+            <h2 class="section-title">Desempenho por Seção</h2>
+
+            <div class="breakdown-grid">
+                <!-- Literacy -->
+                <div class="breakdown-card">
+                    <div class="breakdown-header">
+                        <div class="breakdown-icon" style="background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="breakdown-info">
+                            <h3 class="breakdown-title">Literacy</h3>
+                            <p class="breakdown-subtitle">Leitura e Escrita</p>
+                        </div>
+                        <div class="breakdown-score high">140</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill high" style="width: 87.5%;" data-width="87.5"></div>
+                    </div>
+                    <div class="breakdown-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#4CAF50" stroke-width="2"/>
+                                <path d="M8 12l2 2 4-4" stroke="#4CAF50" stroke-width="2"/>
+                            </svg>
+                            Excelente
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Conversation -->
+                <div class="breakdown-card">
+                    <div class="breakdown-header">
+                        <div class="breakdown-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" fill="white"/>
+                                <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="breakdown-info">
+                            <h3 class="breakdown-title">Conversation</h3>
+                            <p class="breakdown-subtitle">Conversação</p>
+                        </div>
+                        <div class="breakdown-score medium">125</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill medium" style="width: 78%;" data-width="78"></div>
+                    </div>
+                    <div class="breakdown-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#8BC34A" stroke-width="2"/>
+                                <path d="M8 12l2 2 4-4" stroke="#8BC34A" stroke-width="2"/>
+                            </svg>
+                            Muito Bom
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Comprehension -->
+                <div class="breakdown-card">
+                    <div class="breakdown-header">
+                        <div class="breakdown-icon" style="background: linear-gradient(135deg, #FF9600 0%, #FF8000 100%);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="breakdown-info">
+                            <h3 class="breakdown-title">Comprehension</h3>
+                            <p class="breakdown-subtitle">Compreensão Auditiva</p>
+                        </div>
+                        <div class="breakdown-score medium">130</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill high" style="width: 81%;" data-width="81"></div>
+                    </div>
+                    <div class="breakdown-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#4CAF50" stroke-width="2"/>
+                                <path d="M8 12l2 2 4-4" stroke="#4CAF50" stroke-width="2"/>
+                            </svg>
+                            Excelente
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Production -->
+                <div class="breakdown-card">
+                    <div class="breakdown-header">
+                        <div class="breakdown-icon" style="background: linear-gradient(135deg, #58CC02 0%, #48A802 100%);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="breakdown-info">
+                            <h3 class="breakdown-title">Production</h3>
+                            <p class="breakdown-subtitle">Produção Oral e Escrita</p>
+                        </div>
+                        <div class="breakdown-score medium">135</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill high" style="width: 84%;" data-width="84"></div>
+                    </div>
+                    <div class="breakdown-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#4CAF50" stroke-width="2"/>
+                                <path d="M8 12l2 2 4-4" stroke="#4CAF50" stroke-width="2"/>
+                            </svg>
+                            Excelente
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Summary -->
+        <section class="stats-summary">
+            <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-value">42 min</div>
+                <div class="stat-label">Tempo Total</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-value">89%</div>
+                <div class="stat-label">Taxa de Acerto</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-value">45/50</div>
+                <div class="stat-label">Questões Corretas</div>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <footer class="results-footer">
+            <button class="btn btn-secondary" onclick="window.location.href='dashboard.html'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Ver Correções Detalhadas
+            </button>
+            <button class="btn btn-primary" onclick="window.location.href='dashboard.html'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="white"/>
+                </svg>
+                Voltar ao Dashboard
+            </button>
+        </footer>
+    </div>
+
+    <script src="resultados.js"></script>
+</body>
+</html>

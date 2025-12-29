@@ -1,5 +1,5 @@
 // Timer functionality
-let timeLeft = 178; // 2:58
+let timeLeft = 180; // 3:00
 const timerValue = document.querySelector('.timer-value');
 
 function updateTimer() {

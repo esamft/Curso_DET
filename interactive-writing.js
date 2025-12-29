@@ -125,10 +125,15 @@ nextBtn.addEventListener('click', () => {
         localStorage.removeItem('writingDraft');
         clearInterval(timerInterval);
 
+        // Calculate preliminary score based on word count and time
+        const timeSpent = 300 - timeLeft; // seconds spent
+        const baseScore = Math.min(140, 100 + (wordCount * 0.5));
+
         // Show success message
         alert(`Resposta submetida com sucesso!\n\nTotal de palavras: ${wordCount}`);
 
-        window.location.href = 'index.html';
+        // Redirect to results with score
+        window.location.href = `resultados.html?score=${Math.floor(baseScore)}`;
     }
 });
 
