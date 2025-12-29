@@ -1,16 +1,28 @@
-# Simulador DET - Interactive Speaking
+# Simulador DET - Duolingo English Test
 
-Simulador de teste DET (Duolingo English Test) com interface interativa para prática de conversação em inglês.
+Simulador completo do DET (Duolingo English Test) com múltiplas seções interativas para prática de inglês.
 
 ## Funcionalidades
 
+### 🎯 5 Módulos Completos
+
+1. **Interactive Speaking** - Conversação com avatar AI
+2. **Read and Complete** - Completar textos com letras faltantes
+3. **Read and Select** - Identificar palavras reais vs. inventadas
+4. **Interactive Writing** - Redação com timer e contador de palavras
+5. **Flashcard Deck** - Sistema de flashcards para vocabulário
+
+### ✨ Recursos
+
 - ✅ Interface responsiva e moderna
-- ✅ Timer com contagem regressiva de 35 segundos
-- ✅ Botão de gravação com indicador visual
-- ✅ Status de escuta em tempo real
-- ✅ Animação de ondas sonoras
-- ✅ Barra de progresso circular
-- ✅ Avatar interativo
+- ✅ Timers dinâmicos para cada seção
+- ✅ Sistema de gravação de voz (Interactive Speaking)
+- ✅ Validação automática de respostas
+- ✅ Barra de progresso visual
+- ✅ Animações e feedback interativo
+- ✅ Auto-save de rascunhos
+- ✅ Contador de palavras em tempo real
+- ✅ Sistema de flashcards personalizados
 
 ## Tecnologias
 
@@ -20,51 +32,150 @@ Simulador de teste DET (Duolingo English Test) com interface interativa para pr�
 
 ## Como usar
 
-1. Abra o arquivo `index.html` no seu navegador
-2. Permita o acesso ao microfone quando solicitado
-3. Clique em "GRAVAR RESPOSTA" para iniciar a gravação
-4. Fale por pelo menos 30 segundos sobre o tópico apresentado
-5. Clique em "PARAR GRAVAÇÃO" quando terminar
+### Início Rápido
+
+1. Abra o arquivo `menu.html` no seu navegador para acessar o menu principal
+2. Ou acesse diretamente qualquer módulo específico:
+   - `index.html` - Interactive Speaking
+   - `read-and-complete.html` - Read and Complete
+   - `read-and-select.html` - Read and Select
+   - `interactive-writing.html` - Interactive Writing
+   - `flashcard-modal.html` - Flashcard Deck
+
+### Navegação entre módulos
+
+Cada módulo possui navegação para o próximo, permitindo uma experiência de teste contínua.
 
 ## Estrutura do projeto
 
 ```
 Curso_DET/
-├── index.html      # Estrutura HTML
-├── styles.css      # Estilos e animações
-├── script.js       # Funcionalidades interativas
-└── README.md       # Documentação
+├── menu.html                    # Menu principal com todos os módulos
+├── index.html                   # Interactive Speaking
+├── styles.css
+├── script.js
+├── read-and-complete.html       # Completar textos
+├── read-and-complete.css
+├── read-and-complete.js
+├── read-and-select.html         # Validar palavras
+├── read-and-select.css
+├── read-and-select.js
+├── interactive-writing.html     # Redação livre
+├── interactive-writing.css
+├── interactive-writing.js
+├── flashcard-modal.html         # Sistema de flashcards
+├── flashcard-modal.css
+├── flashcard-modal.js
+└── README.md                    # Documentação
 ```
+
+## Detalhes dos Módulos
+
+### 1. Interactive Speaking (`index.html`)
+- Avatar interativo com status de escuta
+- Gravação de áudio com visualização de ondas sonoras
+- Timer circular de 35 segundos
+- Barra de progresso de questões
+- Feedback visual em tempo real
+
+### 2. Read and Complete (`read-and-complete.html`)
+- Textos com lacunas para preencher
+- Validação automática de respostas
+- Sistema de dicas (hints)
+- Indicador de progresso dinâmico
+- Feedback imediato (correto/incorreto)
+
+### 3. Read and Select (`read-and-select.html`)
+- 18 palavras para validar
+- Timer urgente (4 segundos por palavra)
+- Palavras reais vs. inventadas
+- Sistema de pontuação
+- Animações de feedback
+
+### 4. Interactive Writing (`interactive-writing.html`)
+- Área de texto expansível
+- Timer de 5 minutos
+- Contador de palavras em tempo real
+- Auto-save a cada 10 segundos
+- Verificação ortográfica integrada
+- Previne perda de dados
+
+### 5. Flashcard Deck (`flashcard-modal.html`)
+- Criação de flashcards personalizados
+- Campos: Palavra, Significado, Exemplo
+- Marcação de vocabulário acadêmico
+- Interface modal elegante
+- Sistema de salvamento
 
 ## Características do Design
 
-### Cores
+### Paleta de Cores
 
-- **Verde primário**: `#58CC02` (logo)
-- **Laranja**: `#FF9600` (botões e destaques)
-- **Roxo**: `#8B5CF6` (ícones)
-- **Cinza claro**: `#F5F5F5` (fundo)
-- **Branco**: `#FFFFFF` (cards)
-
-### Componentes
-
-1. **Header**: Logo, título, progresso e timer
-2. **Avatar Section**: Personagem 3D com status de escuta
-3. **Task Section**: Pergunta e instruções para o usuário
-4. **Botão de Gravação**: Controle interativo com feedback visual
+- **Verde**: `#58CC02` - Flashcards, sucesso
+- **Azul**: `#2196F3` - Read and Complete
+- **Laranja**: `#FF9600` - Interactive Speaking/Writing
+- **Vermelho**: `#F44336` - Read and Select, alertas
+- **Roxo**: `#667eea` - Branding principal
+- **Cinza claro**: `#F5F5F5` - Fundos
+- **Branco**: `#FFFFFF` - Cards e elementos
 
 ## Responsividade
 
-O layout se adapta para diferentes tamanhos de tela:
+Todos os módulos são totalmente responsivos:
 
-- **Desktop** (> 1024px): Layout de 2 colunas
-- **Tablet** (768px - 1024px): Layout de 1 coluna
-- **Mobile** (< 768px): Layout simplificado e otimizado
+- **Desktop** (> 1024px): Layout otimizado com 2 colunas
+- **Tablet** (768px - 1024px): Layout de 1 coluna adaptado
+- **Mobile** (< 768px): Interface simplificada e touch-friendly
 
-## Próximas melhorias
+## Funcionalidades Técnicas
 
-- [ ] Integração real com API de reconhecimento de voz
-- [ ] Sistema de avaliação de respostas
-- [ ] Múltiplas perguntas com navegação
-- [ ] Armazenamento de respostas
-- [ ] Feedback de pronúncia
+### Auto-save e Persistência
+- LocalStorage para salvar rascunhos (Interactive Writing)
+- Proteção contra perda de dados ao fechar a página
+- Recuperação automática de sessões
+
+### Validação Inteligente
+- Verificação em tempo real de respostas
+- Feedback visual imediato (cores, animações)
+- Sistema de pontuação e estatísticas
+
+### Acessibilidade
+- Suporte a teclado (atalhos)
+- Navegação com Tab
+- Feedback sonoro e visual
+- Contraste adequado de cores
+
+## Atalhos de Teclado
+
+### Interactive Writing
+- `Ctrl/Cmd + Enter` - Submeter resposta
+- `Ctrl/Cmd + S` - Salvar rascunho
+
+### Read and Select
+- `1` ou `N` - Selecionar "NÃO"
+- `2` ou `Y` - Selecionar "SIM"
+
+## Melhorias Futuras
+
+- [ ] Integração com Web Speech API (reconhecimento de voz real)
+- [ ] Backend com Node.js para salvar resultados
+- [ ] Sistema de autenticação de usuários
+- [ ] Dashboard de progresso e estatísticas
+- [ ] Modo offline (PWA)
+- [ ] Exportar resultados em PDF
+- [ ] Quiz generator automático
+- [ ] Múltiplos idiomas de interface
+- [ ] Sistema de rankings
+- [ ] Integração com IA para feedback personalizado
+
+## Baseado no Design
+
+Este projeto foi desenvolvido com base nos designs do **Google Stitch** e nas especificações oficiais do **Duolingo English Test**.
+
+## Licença
+
+Este é um projeto educacional desenvolvido para fins de estudo e prática.
+
+## Contribuições
+
+Pull requests são bem-vindos! Para mudanças significativas, por favor abra uma issue primeiro para discutir o que você gostaria de mudar.

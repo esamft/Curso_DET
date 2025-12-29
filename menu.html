@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DET Simulator - Menu Principal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 15px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-layer {
+            width: 100%;
+            height: 12px;
+            border-radius: 6px;
+        }
+
+        .logo-layer:nth-child(1) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .logo-layer:nth-child(2) {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+        }
+
+        .logo-layer:nth-child(3) {
+            background: linear-gradient(135deg, #FF9600 0%, #FF8000 100%);
+        }
+
+        h1 {
+            color: white;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .card-icon.purple {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card-icon.blue {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+        }
+
+        .card-icon.red {
+            background: linear-gradient(135deg, #F44336 0%, #D32F2F 100%);
+        }
+
+        .card-icon.orange {
+            background: linear-gradient(135deg, #FF9600 0%, #FF8000 100%);
+        }
+
+        .card-icon.green {
+            background: linear-gradient(135deg, #58CC02 0%, #48A802 100%);
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #3C3C3C;
+            margin-bottom: 4px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .card-badge {
+            display: inline-block;
+            background: #E3F2FD;
+            color: #2196F3;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            align-self: flex-start;
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-top: 32px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-layer"></div>
+                <div class="logo-layer"></div>
+                <div class="logo-layer"></div>
+            </div>
+            <h1>DET Simulator</h1>
+            <p class="subtitle">Simulador completo do Duolingo English Test</p>
+        </div>
+
+        <div class="menu-grid">
+            <a href="index.html" class="menu-card">
+                <div class="card-icon purple">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="card-title">Interactive Speaking</div>
+                <div class="card-description">Pratique conversação com avatar interativo e sistema de gravação de voz.</div>
+                <span class="card-badge">Speaking</span>
+            </a>
+
+            <a href="read-and-complete.html" class="menu-card">
+                <div class="card-icon blue">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="card-title">Read and Complete</div>
+                <div class="card-description">Complete textos preenchendo as letras que faltam nas palavras.</div>
+                <span class="card-badge">Reading</span>
+            </a>
+
+            <a href="read-and-select.html" class="menu-card">
+                <div class="card-icon red">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="card-title">Read and Select</div>
+                <div class="card-description">Identifique palavras reais em inglês vs. palavras inventadas.</div>
+                <span class="card-badge">Vocabulary</span>
+            </a>
+
+            <a href="interactive-writing.html" class="menu-card">
+                <div class="card-icon orange">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="card-title">Interactive Writing</div>
+                <div class="card-description">Escreva redações sobre tópicos variados com contador de palavras.</div>
+                <span class="card-badge">Writing</span>
+            </a>
+
+            <a href="flashcard-modal.html" class="menu-card">
+                <div class="card-icon green">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM11 12l2.03 2.71L16 11l4 5H4l3-4 3 3.99z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="card-title">Flashcard Deck</div>
+                <div class="card-description">Crie flashcards personalizados para revisar vocabulário acadêmico.</div>
+                <span class="card-badge">Study Tool</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>Desenvolvido para prática do DET • <a href="https://github.com/esamft/Curso_DET" target="_blank">Ver no GitHub</a></p>
+        </div>
+    </div>
+</body>
+</html>

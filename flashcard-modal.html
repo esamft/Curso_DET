@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar ao Deck - DET Simulator</title>
+    <link rel="stylesheet" href="flashcard-modal.css">
+</head>
+<body>
+    <div class="overlay">
+        <div class="modal">
+            <button class="close-modal">×</button>
+
+            <div class="modal-header">
+                <h2>Adicionar ao Deck</h2>
+                <p class="subtitle">Crie um novo flashcard para revisar depois.</p>
+            </div>
+
+            <form class="flashcard-form">
+                <div class="form-group">
+                    <label>PALAVRA OU EXPRESSÃO</label>
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="ex: Ephemeral" class="input-field active">
+                        <svg class="edit-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M15.2 2.8c.4-.4 1.1-.4 1.6 0l.4.4c.4.4.4 1.1 0 1.6l-9.6 9.6-2.4.4.4-2.4 9.6-9.6z" fill="#58CC02"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>SIGNIFICADO</label>
+                    <input type="text" placeholder="ex: Que dura pouco tempo" class="input-field">
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        EXEMPLO DE CONTEXTO
+                        <span class="optional">Opcional</span>
+                    </label>
+                    <textarea placeholder="ex: Fashions are ephemeral, changing with every season." class="textarea-field" rows="4"></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox">
+                        <svg class="checkbox-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <rect width="20" height="20" rx="4" fill="#E3F2FD"/>
+                            <path d="M8 12l-2-2-1.5 1.5L8 15l8-8-1.5-1.5L8 12z" fill="#2196F3"/>
+                        </svg>
+                        <span class="checkbox-text">VOCABULÁRIO ACADÊMICO</span>
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel">CANCELAR</button>
+                    <button type="submit" class="btn-save">
+                        SALVAR FLASHCARD
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7 10l3 3 7-7" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="flashcard-modal.js"></script>
+</body>
+</html>

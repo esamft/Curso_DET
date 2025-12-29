@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Writing - DET Simulator</title>
+    <link rel="stylesheet" href="interactive-writing.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="title-section">
+                <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 3h18v2H3V3zm0 8h18v2H3v-2zm0 8h12v2H3v-2z" fill="#FF9600"/>
+                </svg>
+                <h1>Interactive Writing</h1>
+            </div>
+            <div class="timer">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="10" r="8" stroke="#FF9600" stroke-width="2"/>
+                    <path d="M10 6v4l3 3" stroke="#FF9600" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="timer-value">05:00</span>
+            </div>
+            <button class="next-btn-header">Próximo</button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="prompt-section">
+                <h2 class="prompt-text">Describe a time you overcame a challenge. Explain how it affected you.</h2>
+            </div>
+
+            <div class="writing-section">
+                <textarea
+                    class="writing-area"
+                    placeholder="Digite sua resposta aqui..."
+                    spellcheck="true"
+                ></textarea>
+
+                <div class="footer-info">
+                    <div class="status-indicator">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <rect width="16" height="16" rx="2" fill="#E5E5E5"/>
+                            <path d="M5 8l2 2 4-4" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span class="status-text">Escrevendo...</span>
+                    </div>
+                    <div class="word-count">
+                        <span class="count">0</span> palavras
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="interactive-writing.js"></script>
+</body>
+</html>

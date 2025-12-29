@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read and Select - DET Simulator</title>
+    <link rel="stylesheet" href="read-and-select.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <h1>READ AND SELECT</h1>
+            <div class="timer urgent">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="10" r="8" stroke="#F44336" stroke-width="2"/>
+                    <path d="M10 6v4l3 3" stroke="#F44336" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="timer-value">00:04</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="word-counter">PALAVRA 3 DE 18</div>
+
+            <div class="word-display">
+                <h2 class="word" id="currentWord">UNFLAPTION</h2>
+            </div>
+
+            <div class="choice-buttons">
+                <button class="choice-btn no-btn" data-choice="no">
+                    <span class="choice-label">NÃO</span>
+                    <span class="choice-description">Não é uma palavra</span>
+                </button>
+                <button class="choice-btn yes-btn" data-choice="yes">
+                    <span class="choice-label">SIM</span>
+                    <span class="choice-description">É uma palavra em inglês</span>
+                </button>
+            </div>
+
+            <p class="instruction">SELECIONE UMA OPÇÃO PARA CONTINUAR</p>
+        </main>
+    </div>
+
+    <script src="read-and-select.js"></script>
+</body>
+</html>

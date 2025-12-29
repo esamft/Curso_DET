@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #FAFAFA;
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Progress Bar */
+.progress-bar {
+    height: 6px;
+    background: #E5E5E5;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 60%;
+    background: linear-gradient(90deg, #FF9600 0%, #FF8000 100%);
+    transition: width 0.3s ease;
+}
+
+/* Header */
+.header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon {
+    flex-shrink: 0;
+}
+
+.header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #3C3C3C;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFF8E1;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.timer-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #FF9600;
+    font-variant-numeric: tabular-nums;
+}
+
+.next-btn-header {
+    background: white;
+    border: 2px solid #E5E5E5;
+    color: #666;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.next-btn-header:hover {
+    border-color: #FF9600;
+    color: #FF9600;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.prompt-section {
+    margin-bottom: 8px;
+}
+
+.prompt-text {
+    font-size: 28px;
+    color: #3C3C3C;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.writing-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.writing-area {
+    flex: 1;
+    padding: 32px;
+    border: none;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #3C3C3C;
+    font-family: inherit;
+    resize: none;
+    min-height: 400px;
+    background: white;
+}
+
+.writing-area:focus {
+    outline: none;
+}
+
+.writing-area::placeholder {
+    color: #CCC;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    background: #FAFAFA;
+    border-top: 1px solid #E5E5E5;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-text {
+    font-size: 13px;
+    color: #999;
+}
+
+.status-indicator.typing .status-text {
+    color: #FF9600;
+}
+
+.status-indicator.typing svg rect {
+    fill: #FF9600;
+}
+
+.status-indicator.typing svg path {
+    stroke: white;
+}
+
+.word-count {
+    font-size: 14px;
+    color: #999;
+}
+
+.count {
+    font-weight: 700;
+    color: #3C3C3C;
+    font-size: 16px;
+}
+
+.word-count.warning {
+    color: #F44336;
+}
+
+.word-count.warning .count {
+    color: #F44336;
+}
+
+/* Typing animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.status-indicator.typing {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        padding: 16px 20px;
+    }
+
+    .header h1 {
+        font-size: 16px;
+    }
+
+    .title-section {
+        gap: 8px;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .next-btn-header {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .main-content {
+        padding: 32px 20px;
+    }
+
+    .prompt-text {
+        font-size: 20px;
+    }
+
+    .writing-area {
+        padding: 20px;
+        font-size: 16px;
+        min-height: 300px;
+    }
+
+    .footer-info {
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+}
+
+/* Alternative layout (second version from image) */
+body.compact-layout {
+    background: white;
+}
+
+.compact-layout .header {
+    background: #FAFAFA;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.compact-layout .header h1 {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    font-weight: 700;
+}
+
+.compact-layout .timer {
+    background: transparent;
+    padding: 0;
+}
+
+.compact-layout .timer-value {
+    color: #999;
+}
+
+.compact-layout .progress-bar {
+    height: 3px;
+}
+
+.compact-layout .main-content {
+    padding: 40px;
+}
+
+.compact-layout .writing-section {
+    box-shadow: none;
+    border: 2px solid #E5E5E5;
+}
+
+.compact-layout .footer-info {
+    background: white;
+}
