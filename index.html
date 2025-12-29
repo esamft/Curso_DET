@@ -1,93 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador DET - Interactive Speaking</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo-section">
-                <div class="logo">
-                    <div class="logo-layers">
-                        <span class="layer"></span>
-                        <span class="layer"></span>
-                        <span class="layer"></span>
-                    </div>
-                </div>
-                <div class="title">
-                    <h1>SIMULADOR DET</h1>
-                    <p>Interactive Speaking</p>
-                </div>
-            </div>
-            <div class="progress-section">
-                <span class="question-info">PERGUNTA 1 DE 5</span>
-                <span class="percentage">20%</span>
-                <div class="timer-circle">
-                    <span class="timer-value">35</span>
-                </div>
-            </div>
-            <button class="close-btn">×</button>
-        </header>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Left Section - Avatar -->
-            <div class="avatar-section">
-                <div class="conversation-bubble">
-                    <p>Let's start the conversation.</p>
-                </div>
-                <div class="avatar-card">
-                    <div class="avatar-image">
-                        <img src="https://via.placeholder.com/320x400/8B7B9E/8B7B9E" alt="Bea Avatar">
-                    </div>
-                    <div class="listening-status">
-                        <span class="status-dot"></span>
-                        <span class="status-text">Bea is listening</span>
-                    </div>
-                </div>
-                <div class="instruction-card">
-                    <div class="icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="#8B5CF6"/>
-                        </svg>
-                    </div>
-                    <p>Listen and then speak.</p>
-                </div>
-            </div>
-
-            <!-- Right Section - Task -->
-            <div class="task-section">
-                <div class="task-card">
-                    <div class="task-header">SPEAKING TASK</div>
-                    <h2 class="task-question">Do you think technology brings people closer together?</h2>
-                    <p class="task-instruction">Speak for at least 30 seconds about the topic below. Explain your opinion with examples.</p>
-                </div>
-
-                <div class="recording-status">
-                    <div class="sound-waves">
-                        <span class="wave"></span>
-                        <span class="wave"></span>
-                        <span class="wave"></span>
-                    </div>
-                    <span class="status-message">AGUARDANDO...</span>
-                </div>
-
-                <button class="record-btn">
-                    <svg class="mic-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" fill="white"/>
-                        <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" fill="white"/>
-                    </svg>
-                    GRAVAR RESPOSTA
-                </button>
-
-                <p class="help-text">Certifique-se de que seu microfone está funcionando corretamente.</p>
-            </div>
-        </main>
-    </div>
-    <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DET Simulator - Simulador Duolingo English Test</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
