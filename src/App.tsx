@@ -3,6 +3,8 @@ import { Dashboard } from '@/pages/Dashboard';
 import { Results } from '@/pages/Results';
 import { Menu } from '@/pages/Menu';
 import { ReadSelect } from '@/pages/ReadSelect';
+import { Writing } from '@/pages/Writing';
+import { ReadComplete } from '@/pages/ReadComplete';
 
 function App() {
   return (
@@ -13,10 +15,10 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/results" element={<Results />} />
         <Route path="/practice/read-select" element={<ReadSelect />} />
+        <Route path="/practice/writing" element={<Writing />} />
+        <Route path="/practice/read-complete" element={<ReadComplete />} />
         {/* Future routes to be added:
           - /practice/speaking - Interactive Speaking
-          - /practice/read-complete - Read and Complete
-          - /practice/writing - Interactive Writing
         */}
       </Routes>
     </BrowserRouter>
