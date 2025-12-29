@@ -1,0 +1,408 @@
+/* Reset e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #F5F5F5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    background-color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.logo-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.layer {
+    width: 50px;
+    height: 12px;
+    background: linear-gradient(135deg, #58CC02 0%, #48A802 100%);
+    border-radius: 6px;
+}
+
+.title h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #3C3C3C;
+    letter-spacing: 0.5px;
+}
+
+.title p {
+    font-size: 13px;
+    color: #999;
+    font-weight: 400;
+}
+
+.progress-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.question-info {
+    font-size: 13px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.percentage {
+    font-size: 13px;
+    color: #999;
+    font-weight: 600;
+}
+
+.timer-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: conic-gradient(#FF9600 0deg 252deg, #E5E5E5 252deg 360deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.timer-circle::before {
+    content: '';
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    background: white;
+    border-radius: 50%;
+}
+
+.timer-value {
+    position: relative;
+    z-index: 1;
+    font-size: 20px;
+    font-weight: 700;
+    color: #FF9600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #CCC;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #999;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    padding: 60px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Avatar Section */
+.avatar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.conversation-bubble {
+    background: white;
+    padding: 16px 24px;
+    border-radius: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    align-self: flex-start;
+}
+
+.conversation-bubble p {
+    color: #999;
+    font-size: 14px;
+}
+
+.avatar-card {
+    background: linear-gradient(180deg, #E3F2FD 0%, #BBDEFB 100%);
+    border-radius: 24px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.avatar-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.listening-status {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background: #58CC02;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.status-text {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.instruction-card {
+    background: white;
+    padding: 16px 24px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.icon-wrapper {
+    width: 40px;
+    height: 40px;
+    background: #F3F0FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instruction-card p {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Task Section */
+.task-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.task-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #FF9600;
+}
+
+.task-header {
+    color: #FF9600;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+}
+
+.task-question {
+    font-size: 32px;
+    color: #3C3C3C;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.task-instruction {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.recording-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.sound-waves {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.wave {
+    width: 4px;
+    height: 16px;
+    background: #DDD;
+    border-radius: 2px;
+    animation: wave 1.2s ease-in-out infinite;
+}
+
+.wave:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.wave:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        height: 16px;
+    }
+    50% {
+        height: 28px;
+    }
+}
+
+.status-message {
+    color: #999;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.record-btn {
+    background: linear-gradient(135deg, #FF9600 0%, #FF8000 100%);
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 4px 16px rgba(255, 150, 0, 0.3);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.record-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 150, 0, 0.4);
+}
+
+.record-btn:active {
+    transform: translateY(0);
+}
+
+.mic-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.help-text {
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        padding: 40px;
+    }
+
+    .task-question {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .progress-section {
+        gap: 10px;
+    }
+
+    .question-info {
+        display: none;
+    }
+
+    .main-content {
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .task-card {
+        padding: 24px;
+    }
+
+    .task-question {
+        font-size: 22px;
+    }
+}
