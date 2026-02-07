@@ -3,7 +3,7 @@ DET Flow - Database Models
 Defines SQLAlchemy ORM models for users, submissions, and scores.
 """
 
-from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey, JSON, Boolean, Text
+from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey, JSON, Boolean, Text, Numeric
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from datetime import datetime
@@ -149,3 +149,94 @@ class StudyPlan(Base):
 
     def __repr__(self):
         return f"<StudyPlan(id={self.id}, user_id={self.user_id}, title={self.title})>"
+
+
+class Payment(Base):
+    """
+    Payment model representing subscription payment transactions.
+    """
+    __tablename__ = "payments"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+
+    # Payment provider details
+    payment_id = Column(String(255), unique=True, index=True)  # External provider ID
+    provider = Column(String(50), default="mercadopago")  # mercadopago, stripe, manual
+
+    # Amount and currency
+    amount = Column(Numeric(10, 2), nullable=False)
+    currency = Column(String(3), default="BRL")
+
+    # Subscription details
+    subscription_plan = Column(String(20), nullable=False)  # weekly, monthly, yearly
+
+    # Status
+    status = Column(String(30), default="pending")  # pending, approved, rejected, etc.
+    status_detail = Column(String(100), nullable=True)
+
+    # Payment method
+    payment_method = Column(String(50), nullable=True)  # pix, credit_card, etc.
+    payment_method_id = Column(String(100), nullable=True)
+
+    # PIX specific fields
+    pix_qr_code = Column(Text, nullable=True)
+    pix_qr_code_base64 = Column(Text, nullable=True)
+    pix_expiration_date = Column(DateTime(timezone=True), nullable=True)
+
+    # Metadata
+    external_reference = Column(String(255), nullable=True)
+    description = Column(Text, nullable=True)
+    metadata = Column(JSON, nullable=True)
+
+    # Timestamps
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+    approved_at = Column(DateTime(timezone=True), nullable=True)
+    expires_at = Column(DateTime(timezone=True), nullable=True)
+
+    # Receipt and invoice
+    receipt_url = Column(String(512), nullable=True)
+    invoice_id = Column(String(255), nullable=True)
+
+    # Relationship
+    user = relationship("User")
+
+    def __repr__(self):
+        return f"<Payment(id={self.id}, user_id={self.user_id}, amount={self.amount}, status={self.status})>"
+
+
+class SubscriptionHistory(Base):
+    """
+    Subscription history tracking changes over time.
+    """
+    __tablename__ = "subscription_history"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+
+    # Subscription details
+    plan = Column(String(20), nullable=False)
+    status = Column(String(20), nullable=False)
+
+    # Dates
+    start_date = Column(DateTime(timezone=True), nullable=False)
+    end_date = Column(DateTime(timezone=True), nullable=True)
+
+    # Change reason
+    action = Column(String(50), nullable=False)  # created, renewed, cancelled, etc.
+    reason = Column(Text, nullable=True)
+
+    # Payment reference
+    payment_id = Column(Integer, ForeignKey("payments.id"), nullable=True)
+
+    # Metadata
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    metadata = Column(JSON, nullable=True)
+
+    # Relationships
+    user = relationship("User")
+    payment = relationship("Payment")
+
+    def __repr__(self):
+        return f"<SubscriptionHistory(id={self.id}, user_id={self.user_id}, action={self.action})>"

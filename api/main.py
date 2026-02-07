@@ -16,6 +16,11 @@ from core.models import User, Submission
 from maestro import maestro
 from sqlalchemy.orm import Session
 
+# Import API routers
+from api.auth import router as auth_router
+from api.payments import router as payments_router
+from api.admin import router as admin_router
+
 # Configure logging
 logger = logging.getLogger(__name__)
 
@@ -35,6 +40,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include API routers
+app.include_router(auth_router)
+app.include_router(payments_router)
+app.include_router(admin_router)
 
 
 # ==================== Pydantic Models ====================

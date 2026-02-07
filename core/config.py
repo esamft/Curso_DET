@@ -62,6 +62,18 @@ class Settings(BaseSettings):
     redis_url: Optional[str] = Field(default=None, description="Redis connection URL")
     redis_enabled: bool = Field(default=False, description="Enable Redis caching")
 
+    # ==================== Payment Processing ====================
+    mercado_pago_access_token: Optional[str] = Field(default=None, description="Mercado Pago access token")
+    mercado_pago_public_key: Optional[str] = Field(default=None, description="Mercado Pago public key")
+
+    # ==================== Admin ====================
+    admin_api_key: str = Field(default="change_me", description="Admin API key")
+
+    # ==================== Payment URLs ====================
+    payment_success_url: Optional[str] = Field(default=None, description="Payment success redirect URL")
+    payment_failure_url: Optional[str] = Field(default=None, description="Payment failure redirect URL")
+    webhook_base_url: Optional[str] = Field(default=None, description="Base URL for webhooks")
+
     @field_validator("log_level")
     @classmethod
     def validate_log_level(cls, v: str) -> str:

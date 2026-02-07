@@ -34,6 +34,9 @@ python-jose[cryptography]>=3.3.0
 passlib[bcrypt]>=1.7.4
 pendulum>=3.0.0
 
+# Payment Processing
+mercadopago>=2.2.0
+
 # Development
 pytest>=8.0.0
 pytest-asyncio>=0.23.4
