@@ -187,7 +187,7 @@ class Payment(Base):
     # Metadata
     external_reference = Column(String(255), nullable=True)
     description = Column(Text, nullable=True)
-    metadata = Column(JSON, nullable=True)
+    metadata_json = Column("metadata", JSON, nullable=True)
 
     # Timestamps
     created_at = Column(DateTime(timezone=True), server_default=func.now())
@@ -232,7 +232,7 @@ class SubscriptionHistory(Base):
 
     # Metadata
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-    metadata = Column(JSON, nullable=True)
+    metadata_json = Column("metadata", JSON, nullable=True)
 
     # Relationships
     user = relationship("User")

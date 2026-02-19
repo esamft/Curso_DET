@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -24,7 +24,7 @@ export default function Footer() {
               <span className="text-xl font-bold text-white">DET Descomplicado</span>
             </div>
             <p className="text-sm text-gray-400 mb-4">
-              A plataforma mais completa de preparação para o Duolingo English Test com inteligência artificial.
+              Plataforma simples para praticar e acompanhar seu estudo para o DET.
             </p>
             {/* Social Media */}
             <div className="flex gap-3">
@@ -88,15 +88,7 @@ export default function Footer() {
                   onClick={() => scrollToSection('pricing')}
                   className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
                 >
-                  Planos e Preços
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('testimonials')}
-                  className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                >
-                  Depoimentos
+                  Preço
                 </button>
               </li>
               <li>
@@ -152,15 +144,6 @@ export default function Footer() {
                   <p className="text-sm text-gray-400">Email</p>
                   <a href="mailto:contato@detdescomplicado.com.br" className="text-sm hover:text-primary-400 transition-colors">
                     contato@detdescomplicado.com.br
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <Phone className="h-5 w-5 text-primary-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-sm text-gray-400">WhatsApp</p>
-                  <a href="https://wa.me/5511999999999" className="text-sm hover:text-primary-400 transition-colors">
-                    +55 11 99999-9999
                   </a>
                 </div>
               </li>

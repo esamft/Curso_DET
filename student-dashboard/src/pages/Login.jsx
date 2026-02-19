@@ -6,6 +6,9 @@ import useAuthStore from '../store/authStore';
 export default function Login() {
   const navigate = useNavigate();
   const { login, isAuthenticated, error, clearError, isLoading } = useAuthStore();
+  const showTestCredentials = import.meta.env.VITE_SHOW_TEST_CREDENTIALS === 'true';
+  const testUserEmail = import.meta.env.VITE_TEST_USER_EMAIL || 'aluno@detflow.com';
+  const testUserPassword = import.meta.env.VITE_TEST_USER_PASSWORD || 'Aluno123!';
 
   const [formData, setFormData] = useState({
     email: '',
@@ -159,6 +162,18 @@ export default function Login() {
             </button>
           </form>
 
+          {showTestCredentials && (
+            <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700">
+              <p className="font-medium mb-1">Acesso de teste</p>
+              <p>
+                Email: <span className="font-semibold">{testUserEmail}</span>
+              </p>
+              <p>
+                Senha: <span className="font-semibold">{testUserPassword}</span>
+              </p>
+            </div>
+          )}
+
           {/* Register Link */}
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
@@ -174,7 +189,7 @@ export default function Login() {
         <div className="mt-6 text-center">
           <div className="inline-flex items-center gap-2 bg-success-50 border border-success-200 text-success-800 px-4 py-2 rounded-full text-sm font-medium">
             <span>🎉</span>
-            <span>3 dias grátis para novos alunos</span>
+            <span>24 horas grátis para novos alunos</span>
           </div>
         </div>
       </div>

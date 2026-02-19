@@ -19,7 +19,7 @@ npm install
 cp .env.example .env
 ```
 
-O arquivo `.env` já vem configurado para `http://localhost:8000` (backend local).
+O arquivo `.env` já vem configurado para `http://127.0.0.1:8000` (backend local).
 
 ### 3. Iniciar o Backend
 
@@ -43,13 +43,13 @@ cd frontend-admin
 npm run dev
 ```
 
-Acesse: **http://localhost:3000**
+Acesse: **http://127.0.0.1:3000**
 
 ---
 
 ## 🔐 **COMO FAZER LOGIN**
 
-1. Abra http://localhost:3000
+1. Abra http://127.0.0.1:3000
 2. Digite a chave de administrador
 3. A chave está no arquivo `.env` do backend: `ADMIN_API_KEY`
 4. Por padrão, é `admin_secret_key_change_me` (mude em produção!)
@@ -268,7 +268,7 @@ Resultado: Conta bloqueada imediatamente
 **Solução:**
 ```bash
 # Verificar se backend está rodando
-curl http://localhost:8000/health
+curl http://127.0.0.1:8000/health
 
 # Verificar chave admin no backend
 echo $ADMIN_API_KEY  # ou ver no .env
@@ -290,7 +290,7 @@ echo $ADMIN_API_KEY  # ou ver no .env
 **Solução:**
 1. Registre um usuário teste:
    ```bash
-   curl -X POST http://localhost:8000/api/auth/register \
+   curl -X POST http://127.0.0.1:8000/api/auth/register \
      -H "Content-Type: application/json" \
      -d '{
        "email": "teste@email.com",
@@ -330,7 +330,7 @@ server {
 
     # API proxy
     location /api {
-        proxy_pass http://localhost:8000;
+        proxy_pass http://127.0.0.1:8000;
         proxy_set_header Host $host;
     }
 }
@@ -370,7 +370,7 @@ Se precisar dar acesso para vários usuários:
 ```bash
 # Use o endpoint diretamente
 for user_id in 1 2 3 4 5; do
-  curl -X POST "http://localhost:8000/api/admin/users/$user_id/grant-access?admin_key=sua_chave" \
+  curl -X POST "http://127.0.0.1:8000/api/admin/users/$user_id/grant-access?admin_key=sua_chave" \
     -H "Content-Type: application/json" \
     -d '{"plan": "weekly", "duration_days": 7}'
 done
@@ -411,8 +411,8 @@ Problemas com o dashboard?
 
 ## ✅ **CHECKLIST DE USO**
 
-- [ ] Backend rodando em http://localhost:8000
-- [ ] Frontend rodando em http://localhost:3000
+- [ ] Backend rodando em http://127.0.0.1:8000
+- [ ] Frontend rodando em http://127.0.0.1:3000
 - [ ] Login feito com chave admin correta
 - [ ] Dashboard carregando estatísticas
 - [ ] Consegue ver lista de usuários

@@ -101,10 +101,10 @@ python -m uvicorn api.main:app --host 0.0.0.0 --port 8000
 
 ```bash
 # Health check
-curl http://localhost:8000/health
+curl http://127.0.0.1:8000/health
 
 # Ou abra no navegador
-http://localhost:8000
+http://127.0.0.1:8000
 ```
 
 ## 🧪 Testando os Agentes
@@ -184,7 +184,7 @@ Webhook URL: https://seu-dominio.com/webhook/whatsapp
 Envie uma mensagem de teste via WhatsApp ou API:
 
 ```bash
-curl -X POST http://localhost:8000/webhook/whatsapp \
+curl -X POST http://127.0.0.1:8000/webhook/whatsapp \
   -H "Content-Type: application/json" \
   -H "X-API-Key: your-evolution-key" \
   -d '{

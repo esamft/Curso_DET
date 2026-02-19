@@ -121,7 +121,7 @@ export default function Register() {
         <div className="mb-6 text-center">
           <div className="inline-flex items-center gap-2 bg-success-50 border border-success-200 text-success-800 px-4 py-2 rounded-full text-sm font-medium">
             <CheckCircle className="h-4 w-4" />
-            <span>3 dias grátis • Sem cartão de crédito</span>
+            <span>24 horas grátis • Sem cartão de crédito</span>
           </div>
         </div>
 

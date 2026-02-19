@@ -3,6 +3,7 @@ import { Menu, X, Sparkles } from 'lucide-react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const loginUrl = import.meta.env.VITE_LOGIN_URL || 'http://localhost:5174/login';
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -32,16 +33,18 @@ export default function Header() {
               Como Funciona
             </button>
             <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
-              Preços
+              Preço
             </button>
             <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
               FAQ
             </button>
             <button
-              onClick={() => scrollToSection('cta')}
+              onClick={() => {
+                window.location.href = loginUrl;
+              }}
               className="bg-primary-600 text-white px-6 py-2 rounded-full hover:bg-primary-700 transition-colors font-semibold"
             >
-              Começar Agora
+              Entrar
             </button>
           </div>
 
@@ -64,13 +67,18 @@ export default function Header() {
               Como Funciona
             </button>
             <button onClick={() => scrollToSection('pricing')} className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
-              Preços
+              Preço
             </button>
             <button onClick={() => scrollToSection('faq')} className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
               FAQ
             </button>
-            <button onClick={() => scrollToSection('cta')} className="block w-full bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold">
-              Começar Agora
+            <button
+              onClick={() => {
+                window.location.href = loginUrl;
+              }}
+              className="block w-full bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold"
+            >
+              Entrar
             </button>
           </div>
         )}

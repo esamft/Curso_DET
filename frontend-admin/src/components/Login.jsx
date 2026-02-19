@@ -8,6 +8,8 @@ export default function Login() {
   const [adminKey, setAdminKey] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const showTestCredentials = import.meta.env.VITE_SHOW_TEST_CREDENTIALS === 'true';
+  const testAdminKey = import.meta.env.VITE_TEST_ADMIN_KEY || 'Admin123!';
   const navigate = useNavigate();
   const setAuthAdminKey = useAuthStore((state) => state.setAdminKey);
 
@@ -44,6 +46,15 @@ export default function Login() {
         </div>
 
         <div className="card">
+          {showTestCredentials && (
+            <div className="mb-4 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700">
+              <p className="font-medium mb-1">Acesso de teste</p>
+              <p>
+                Chave de administrador:{' '}
+                <span className="font-semibold">{testAdminKey}</span>
+              </p>
+            </div>
+          )}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="admin-key" className="block text-sm font-medium text-gray-700 mb-2">

@@ -6,44 +6,28 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: 'Como funciona o teste grátis de 3 dias?',
-      answer: 'Ao se cadastrar, você tem acesso completo à plataforma por 3 dias sem precisar informar cartão de crédito. Pode cancelar a qualquer momento antes do término do período de teste e não será cobrado nada.',
+      question: 'Como funciona o teste grátis de 24 horas?',
+      answer: 'Ao se cadastrar, você tem acesso completo à plataforma por 24 horas sem precisar informar cartão de crédito. Pode cancelar a qualquer momento antes do término do período de teste e não será cobrado nada.',
     },
     {
-      question: 'A IA realmente corrige como um examinador oficial do DET?',
-      answer: 'Sim! Nossa IA foi treinada com milhares de avaliações reais do DET e segue exatamente os mesmos critérios oficiais: gramática, vocabulário, relevância e coerência. Os subscores (Literacy, Comprehension, Conversation e Production) são calculados na escala oficial de 10-160.',
+      question: 'Preciso de cartão de crédito?',
+      answer: 'Não. O teste grátis é liberado sem cartão de crédito.',
     },
     {
-      question: 'Posso usar no WhatsApp?',
-      answer: 'Sim! Após o cadastro, você recebe acesso ao nosso assistente via WhatsApp. Pode enviar suas respostas, tirar dúvidas e receber feedback instantâneo direto no app que você já usa todos os dias.',
+      question: 'O que inclui o plano semanal?',
+      answer: 'Correção de respostas, diagnóstico inicial, acompanhamento simples e um plano semanal para organizar seus estudos.',
     },
     {
-      question: 'Quanto tempo leva para ver resultados?',
-      answer: 'Nossos alunos costumam ver melhoria significativa em 2-3 semanas de prática consistente. A melhoria média é de +30 pontos na pontuação final. Com dedicação, você pode alcançar sua meta ainda mais rápido!',
-    },
-    {
-      question: 'O que acontece se eu não passar no DET?',
-      answer: 'Oferecemos garantia de satisfação! Se você não ficar satisfeito com a plataforma nos primeiros 7 dias, devolvemos 100% do seu dinheiro. Além disso, nossos alunos têm 95% de taxa de aprovação.',
+      question: 'Como o feedback é gerado?',
+      answer: 'O feedback é automático e segue critérios objetivos para ajudar você a ajustar suas respostas.',
     },
     {
       question: 'Posso cancelar a qualquer momento?',
-      answer: 'Sim, pode cancelar quando quiser sem burocracia. Não há fidelidade ou multa. Seu acesso permanece ativo até o final do período que você já pagou.',
-    },
-    {
-      question: 'Quantos exercícios posso fazer por dia?',
-      answer: 'Ilimitados! Você pode praticar quantas vezes quiser. Não há limite de submissões, correções ou acesso ao assistente IA. Estude no seu ritmo.',
-    },
-    {
-      question: 'Preciso ter conhecimento técnico para usar?',
-      answer: 'Não! A plataforma é super intuitiva e fácil de usar. Se você sabe usar WhatsApp e email, já sabe usar o DET Descomplicado. Além disso, temos suporte disponível para te ajudar.',
-    },
-    {
-      question: 'Qual a diferença entre os planos?',
-      answer: 'Todos os planos incluem acesso completo à plataforma. A diferença está na duração: Semanal (7 dias) é ideal para testes rápidos, Mensal (30 dias) é o mais popular para preparação completa, e Anual oferece o melhor custo-benefício com economia de 72%.',
+      answer: 'Sim, pode cancelar quando quiser. Seu acesso permanece ativo até o final do período que você já pagou.',
     },
     {
       question: 'Tem material em português?',
-      answer: 'Sim! Toda a interface, instruções e feedback estão em português brasileiro. Isso facilita muito o entendimento e acelera seu aprendizado.',
+      answer: 'Sim. A interface e as instruções estão em português brasileiro.',
     },
   ];
 

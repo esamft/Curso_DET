@@ -10,11 +10,14 @@ import logging
 from datetime import datetime
 
 try:
-    from agno import Agent
+    from agno.agent import Agent
 except ImportError:
     from phi.agent import Agent
 
 from core.config import settings
+from agents.model_optimizer import ModelOptimizerAgent
+from agents.model_provider import resolve_model
+from agents.response_parser import extract_json_object, ensure_keys
 
 logger = logging.getLogger(__name__)
 
@@ -107,13 +110,18 @@ IMPORTANT:
 - Consider the task type when evaluating
 """
 
+        # Select model based on cost-benefit profile
+        model_optimizer = ModelOptimizerAgent()
+        recommendation = model_optimizer.recommend_model("evaluation")
+        selected_model = recommendation.get("selected_model") or settings.openai_model
+        model_instance = resolve_model(selected_model)
+
         # Initialize the Agno/Phi Agent
         self.agent = Agent(
             name="DET Evaluator",
-            model=settings.openai_model,
+            model=model_instance,
             instructions=self.system_prompt,
             markdown=False,
-            show_tool_calls=False,
             debug_mode=settings.app_debug
         )
 
@@ -186,21 +194,21 @@ Please evaluate this submission following the Chain-of-Thought process and provi
             Parsed evaluation dictionary
         """
         try:
-            # Try to find JSON in the response
-            json_start = response_content.find("{")
-            json_end = response_content.rfind("}") + 1
-
-            if json_start != -1 and json_end > json_start:
-                json_str = response_content[json_start:json_end]
-                evaluation = json.loads(json_str)
-                return evaluation
-            else:
-                raise ValueError("No JSON found in response")
+            evaluation = extract_json_object(response_content)
+            ensure_keys(
+                evaluation,
+                ["overall_score", "subscores", "cefr_level", "analysis", "feedback"]
+            )
+            return evaluation
 
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse JSON evaluation: {e}")
             logger.debug(f"Raw response: {response_content}")
             return self._get_fallback_evaluation(error=f"JSON parsing error: {e}")
+        except Exception as e:
+            logger.error(f"Failed to parse evaluation payload: {e}")
+            logger.debug(f"Raw response: {response_content}")
+            return self._get_fallback_evaluation(error=str(e))
 
     def _get_fallback_evaluation(self, error: str = "Unknown error") -> Dict[str, Any]:
         """

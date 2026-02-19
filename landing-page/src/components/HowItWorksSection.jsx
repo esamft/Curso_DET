@@ -6,7 +6,7 @@ export default function HowItWorksSection() {
       number: '01',
       icon: UserPlus,
       title: 'Cadastre-se Grátis',
-      description: 'Crie sua conta em menos de 1 minuto. Sem cartão de crédito, sem compromisso. Comece seu teste grátis de 3 dias agora mesmo.',
+      description: 'Crie sua conta em menos de 1 minuto. Sem cartão de crédito, sem compromisso. Comece seu teste grátis de 24 horas agora mesmo.',
     },
     {
       number: '02',

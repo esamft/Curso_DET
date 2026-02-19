@@ -7,7 +7,7 @@ Plataforma completa para alunos praticarem e se prepararem para o Duolingo Engli
 ### Autenticação
 - ✅ Registro de novos alunos
 - ✅ Login com email e senha
-- ✅ 3 dias de teste grátis para novos usuários
+- ✅ 24 horas de teste grátis para novos usuários
 - ✅ JWT authentication
 - ✅ Alteração de senha
 - ✅ Gerenciamento de perfil

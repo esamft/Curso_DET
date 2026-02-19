@@ -8,11 +8,13 @@ from typing import Dict, Any, Optional
 import logging
 
 try:
-    from agno import Agent
+    from agno.agent import Agent
 except ImportError:
     from phi.agent import Agent
 
 from core.config import settings
+from agents.model_optimizer import ModelOptimizerAgent
+from agents.model_provider import resolve_model
 
 logger = logging.getLogger(__name__)
 
@@ -113,13 +115,18 @@ IMPORTANT:
 - If unsure, ask clarifying questions
 """
 
+        # Select model based on cost-benefit profile
+        model_optimizer = ModelOptimizerAgent()
+        recommendation = model_optimizer.recommend_model("chat")
+        selected_model = recommendation.get("selected_model") or settings.openai_model
+        model_instance = resolve_model(selected_model)
+
         # Initialize the Agno/Phi Agent
         self.agent = Agent(
             name="DET Interface",
-            model=settings.openai_model,
+            model=model_instance,
             instructions=self.system_prompt,
             markdown=False,
-            show_tool_calls=False,
             debug_mode=settings.app_debug
         )
 

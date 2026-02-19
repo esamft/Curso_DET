@@ -1,9 +1,14 @@
+# General
+.DS_Store
+.vscode/
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+env/
 build/
 develop-eggs/
 dist/
@@ -19,47 +24,18 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
-
-# Virtual Environment
 venv/
-env/
-ENV/
-.venv
+.env
 
-# Environment Variables
+# Node
+node_modules/
+dist/
 .env
 .env.local
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# Logs
-logs/
-*.log
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-.tox/
-
-# Agno/Phidata
-.agno/
-.phi/
-storage/
-
-# Temporary files
-tmp/
-temp/
-*.tmp
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm

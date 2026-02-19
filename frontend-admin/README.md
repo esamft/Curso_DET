@@ -16,7 +16,7 @@ npm install
 cp .env.example .env
 ```
 
-Edite `.env` se necessário (padrão: http://localhost:8000)
+Edite `.env` se necessário (padrão: http://127.0.0.1:8000)
 
 ### 3. Iniciar em Desenvolvimento
 
@@ -24,7 +24,7 @@ Edite `.env` se necessário (padrão: http://localhost:8000)
 npm run dev
 ```
 
-Acesse: http://localhost:3000
+Acesse: http://127.0.0.1:3000
 
 ### 4. Login
 

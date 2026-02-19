@@ -9,11 +9,14 @@ import logging
 from datetime import datetime, timedelta
 
 try:
-    from agno import Agent
+    from agno.agent import Agent
 except ImportError:
     from phi.agent import Agent
 
 from core.config import settings
+from agents.model_optimizer import ModelOptimizerAgent
+from agents.model_provider import resolve_model
+from agents.response_parser import extract_json_object, ensure_keys
 
 logger = logging.getLogger(__name__)
 
@@ -118,13 +121,18 @@ IMPORTANT:
 - Adapt difficulty based on current level
 """
 
+        # Select model based on cost-benefit profile
+        model_optimizer = ModelOptimizerAgent()
+        recommendation = model_optimizer.recommend_model("study_plan")
+        selected_model = recommendation.get("selected_model") or settings.openai_model
+        model_instance = resolve_model(selected_model)
+
         # Initialize the Agno/Phi Agent
         self.agent = Agent(
             name="DET Pedagogue",
-            model=settings.openai_model,
+            model=model_instance,
             instructions=self.system_prompt,
             markdown=False,
-            show_tool_calls=False,
             debug_mode=settings.app_debug
         )
 
@@ -207,18 +215,19 @@ Provide your response in the required JSON format.
             Parsed study plan dictionary
         """
         try:
-            json_start = response_content.find("{")
-            json_end = response_content.rfind("}") + 1
-
-            if json_start != -1 and json_end > json_start:
-                json_str = response_content[json_start:json_end]
-                plan = json.loads(json_str)
-                return plan
-            else:
-                raise ValueError("No JSON found in response")
+            plan = extract_json_object(response_content)
+            ensure_keys(
+                plan,
+                ["plan_title", "duration_weeks", "target_score", "weekly_schedule"]
+            )
+            return plan
 
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse JSON study plan: {e}")
+            logger.debug(f"Raw response: {response_content}")
+            raise
+        except Exception as e:
+            logger.error(f"Failed to parse study plan payload: {e}")
             logger.debug(f"Raw response: {response_content}")
             raise
 

@@ -71,7 +71,7 @@ psql $DATABASE_URL -f migrations/002_add_auth_and_payments.sql
 **Endpoint:** `POST /api/auth/register`
 
 ```bash
-curl -X POST http://localhost:8000/api/auth/register \
+curl -X POST http://127.0.0.1:8000/api/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "email": "usuario@exemplo.com",
@@ -97,14 +97,14 @@ curl -X POST http://localhost:8000/api/auth/register \
 }
 ```
 
-✅ **Usuário ganha 3 dias grátis automaticamente!**
+✅ **Usuário ganha 24 horas grátis automaticamente!**
 
 ### 2. Login
 
 **Endpoint:** `POST /api/auth/login`
 
 ```bash
-curl -X POST http://localhost:8000/api/auth/login \
+curl -X POST http://127.0.0.1:8000/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "usuario@exemplo.com",
@@ -117,7 +117,7 @@ curl -X POST http://localhost:8000/api/auth/login \
 **Endpoint:** `GET /api/auth/me`
 
 ```bash
-curl -X GET http://localhost:8000/api/auth/me \
+curl -X GET http://127.0.0.1:8000/api/auth/me \
   -H "Authorization: Bearer SEU_TOKEN_JWT"
 ```
 
@@ -147,7 +147,7 @@ curl -X GET http://localhost:8000/api/auth/me \
 **Endpoint:** `GET /api/payments/plans`
 
 ```bash
-curl -X GET http://localhost:8000/api/payments/plans
+curl -X GET http://127.0.0.1:8000/api/payments/plans
 ```
 
 **Resposta:**
@@ -158,7 +158,7 @@ curl -X GET http://localhost:8000/api/payments/plans
       "id": "weekly",
       "name": "Plano Semanal",
       "description": "Acesso por 7 dias ao DET Flow",
-      "price": 29.90,
+      "price": 22.90,
       "duration_days": 7,
       "price_per_day": 4.27
     },
@@ -172,7 +172,7 @@ curl -X GET http://localhost:8000/api/payments/plans
 **Endpoint:** `POST /api/payments/create`
 
 ```bash
-curl -X POST http://localhost:8000/api/payments/create \
+curl -X POST http://127.0.0.1:8000/api/payments/create \
   -H "Authorization: Bearer SEU_TOKEN_JWT" \
   -H "Content-Type: application/json" \
   -d '{
@@ -187,7 +187,7 @@ curl -X POST http://localhost:8000/api/payments/create \
   "payment_id": "123456789",
   "status": "pending",
   "plan": "weekly",
-  "amount": 29.90,
+  "amount": 22.90,
   "payment_data": {
     "qr_code": "00020126580014br.gov.bcb.pix...",
     "qr_code_base64": "iVBORw0KGgoAAAANSUhEUgAA...",
@@ -215,7 +215,7 @@ Quando o PIX é pago:
 **Endpoint:** `GET /api/payments/status/{payment_id}`
 
 ```bash
-curl -X GET http://localhost:8000/api/payments/status/123456789 \
+curl -X GET http://127.0.0.1:8000/api/payments/status/123456789 \
   -H "Authorization: Bearer SEU_TOKEN_JWT"
 ```
 
@@ -275,7 +275,7 @@ ADMIN_API_KEY=seu_admin_key_super_secreto_123
 **Endpoint:** `GET /api/admin/stats?admin_key=...`
 
 ```bash
-curl -X GET "http://localhost:8000/api/admin/stats?admin_key=seu_admin_key"
+curl -X GET "http://127.0.0.1:8000/api/admin/stats?admin_key=seu_admin_key"
 ```
 
 **Resposta:**
@@ -306,7 +306,7 @@ curl -X GET "http://localhost:8000/api/admin/stats?admin_key=seu_admin_key"
 **Endpoint:** `GET /api/admin/users`
 
 ```bash
-curl -X GET "http://localhost:8000/api/admin/users?admin_key=...&skip=0&limit=50"
+curl -X GET "http://127.0.0.1:8000/api/admin/users?admin_key=...&skip=0&limit=50"
 ```
 
 **Filtros disponíveis:**
@@ -319,7 +319,7 @@ curl -X GET "http://localhost:8000/api/admin/users?admin_key=...&skip=0&limit=50
 **Endpoint:** `GET /api/admin/users/{user_id}`
 
 ```bash
-curl -X GET "http://localhost:8000/api/admin/users/1?admin_key=..."
+curl -X GET "http://127.0.0.1:8000/api/admin/users/1?admin_key=..."
 ```
 
 ### Conceder Acesso Manual
@@ -327,7 +327,7 @@ curl -X GET "http://localhost:8000/api/admin/users/1?admin_key=..."
 **Endpoint:** `POST /api/admin/users/{user_id}/grant-access`
 
 ```bash
-curl -X POST "http://localhost:8000/api/admin/users/1/grant-access?admin_key=..." \
+curl -X POST "http://127.0.0.1:8000/api/admin/users/1/grant-access?admin_key=..." \
   -H "Content-Type: application/json" \
   -d '{
     "plan": "weekly",
@@ -341,10 +341,10 @@ Isso concede 14 dias de acesso (ou a duração do plano escolhido).
 
 ```bash
 # Desativar
-curl -X POST "http://localhost:8000/api/admin/users/1/deactivate?admin_key=..."
+curl -X POST "http://127.0.0.1:8000/api/admin/users/1/deactivate?admin_key=..."
 
 # Ativar
-curl -X POST "http://localhost:8000/api/admin/users/1/activate?admin_key=..."
+curl -X POST "http://127.0.0.1:8000/api/admin/users/1/activate?admin_key=..."
 ```
 
 ### Expirar Assinaturas Antigas (Cron Job)
@@ -352,7 +352,7 @@ curl -X POST "http://localhost:8000/api/admin/users/1/activate?admin_key=..."
 **Endpoint:** `POST /api/admin/system/expire-subscriptions`
 
 ```bash
-curl -X POST "http://localhost:8000/api/admin/system/expire-subscriptions?admin_key=..."
+curl -X POST "http://127.0.0.1:8000/api/admin/system/expire-subscriptions?admin_key=..."
 ```
 
 ⚠️ **Recomendação:** Configure um cron job para executar isso diariamente:
@@ -380,7 +380,7 @@ curl -X POST "http://localhost:8000/api/admin/system/expire-subscriptions?admin_
 ✅ **Checkout hospedado** (mais seguro)
 
 ```bash
-curl -X POST http://localhost:8000/api/payments/create \
+curl -X POST http://127.0.0.1:8000/api/payments/create \
   -H "Authorization: Bearer SEU_TOKEN_JWT" \
   -H "Content-Type: application/json" \
   -d '{
@@ -492,7 +492,7 @@ SELECT user_has_access(123);  -- user_id = 123
 ```python
 import requests
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://127.0.0.1:8000"
 
 # Registrar
 response = requests.post(f"{BASE_URL}/api/auth/register", json={
@@ -544,7 +544,7 @@ print(f"Payment ID: {payment_data['payment_id']}")
    ```sql
    SELECT SUM(
      CASE subscription_plan
-       WHEN 'weekly' THEN 29.90 * 4.33
+       WHEN 'weekly' THEN 22.90 * 4.33
        WHEN 'monthly' THEN 99.90
        WHEN 'yearly' THEN 997.00 / 12
      END
